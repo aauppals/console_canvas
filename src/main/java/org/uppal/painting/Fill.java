@@ -1,5 +1,7 @@
 package org.uppal.painting;
 
+import com.google.common.collect.ImmutableSet;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,7 +26,7 @@ public class Fill {
         if (coordinates.isEmpty()) {
             System.out.println("Cannot fill at co-ordinates" + coordinate);
         }
-        return coordinates;
+        return ImmutableSet.copyOf(coordinates);
     }
 
     public void executeFill(Coordinate coordinate, Set<Coordinate> coordinates, Canvas canvas) {

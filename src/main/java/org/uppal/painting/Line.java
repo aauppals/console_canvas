@@ -1,6 +1,6 @@
 package org.uppal.painting;
 
-//import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSet;
 
 import java.util.HashSet;
 import java.util.Objects;
@@ -38,7 +38,7 @@ public class Line implements Drawable {
                 resultSet.add(new Coordinate(minX + i, y));
             }
         }
-        return resultSet;
+        return ImmutableSet.copyOf(resultSet);
     }
 
     public void checkVerticalOrHorizontal(Coordinate coordinate1, Coordinate coordinate2) {

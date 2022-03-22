@@ -7,7 +7,7 @@ import java.util.Map;
 
 import static org.uppal.inputCommand.PaintingParams.*;
 
-public class DrawableBuilder {
+public class LineAndRectangleBuilder {
     public Drawable build(Map<PaintingParams, Object> parsedCommand) {
         Command command = (Command) parsedCommand.get(PaintingParams.PAINT_COMMAND);
 
