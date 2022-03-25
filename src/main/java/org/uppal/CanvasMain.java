@@ -1,6 +1,6 @@
 package org.uppal;
 
-import org.uppal.commandExecution.CommandExecutor;
+import org.uppal.commandexecution.CommandExecutor;
 
 import java.util.Scanner;
 

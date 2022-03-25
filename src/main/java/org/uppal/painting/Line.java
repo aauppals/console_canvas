@@ -7,26 +7,27 @@ import java.util.Objects;
 import java.util.Set;
 
 import static java.lang.Math.min;
+import static java.lang.StrictMath.abs;
 import static java.util.Objects.requireNonNull;
 
-public class Line implements Drawable {
+public class Line implements Paintable {
     private final Coordinate coordinate1;
     private final Coordinate coordinate2;
 
-    public Line(Coordinate coordinate1, Coordinate coordinate2) {
+    Line(Coordinate coordinate1, Coordinate coordinate2) {
         this.coordinate1 = requireNonNull(coordinate1);
         this.coordinate2 = requireNonNull(coordinate2);
         checkVerticalOrHorizontal(coordinate1, coordinate2);
     }
 
     @Override
-    public Set<Coordinate> draw() {
+    public Set<Coordinate> paint() {
         Set<Coordinate> resultSet = new HashSet<>();
         boolean xIsSame = coordinate1.getX() == coordinate2.getX();
         if (xIsSame) {
             int x = coordinate1.getX();
             int minY = min(coordinate1.getY(), coordinate2.getY());
-            int distance = StrictMath.abs(coordinate2.getY() - coordinate2.getY());
+            int distance = abs(coordinate1.getY() - coordinate2.getY());
             for (int i = 0; i <= distance; i++) {
                 resultSet.add(new Coordinate(x, minY + i));
             }
@@ -41,7 +42,7 @@ public class Line implements Drawable {
         return ImmutableSet.copyOf(resultSet);
     }
 
-    public void checkVerticalOrHorizontal(Coordinate coordinate1, Coordinate coordinate2) {
+    private void checkVerticalOrHorizontal(Coordinate coordinate1, Coordinate coordinate2) {
         if (!(coordinate1.getX() == coordinate2.getX() || coordinate1.getY() == coordinate2.getY()))
             throw new RuntimeException("Only horizontal and vertical drawing is possible");
     }

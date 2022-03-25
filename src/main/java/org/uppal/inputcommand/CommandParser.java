@@ -1,10 +1,9 @@
-package org.uppal.inputCommand;
+package org.uppal.inputcommand;
 
-import java.lang.reflect.Parameter;
 import java.util.EnumMap;
 
 import static java.lang.Integer.*;
-import static org.uppal.inputCommand.Command.*;
+import static org.uppal.inputcommand.Command.*;
 
 public class CommandParser {
     private static final String DELIMITER = "\\s+";

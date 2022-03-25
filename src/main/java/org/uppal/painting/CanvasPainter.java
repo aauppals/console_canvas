@@ -4,22 +4,22 @@ import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
 
-public class CanvasDrawer implements Drawer {
+public class CanvasPainter implements Painter {
     private Canvas canvas;
 
-    public CanvasDrawer(Canvas canvas) {
+    public CanvasPainter(Canvas canvas) {
         this.canvas = requireNonNull(canvas);
     }
 
     @Override
-    public Canvas draw(Drawable drawable) {
-        Set<Coordinate> coordinates = drawable.draw();
+    public Canvas paint(Paintable paintable) {
+        Set<Coordinate> coordinates = paintable.paint();
         canvas.apply(coordinates);
         return canvas;
     }
 
     @Override
-    public Canvas draw(Fill fill) {
+    public Canvas paint(Fill fill) {
         Set<Coordinate> coordinates = fill.fill(canvas);
         canvas.apply(coordinates, fill.getColour());
         return canvas;

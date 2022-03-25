@@ -1,11 +1,11 @@
 package org.uppal.painting;
 
-import org.uppal.inputCommand.PaintingParams;
+import org.uppal.inputcommand.PaintingParams;
 
 import java.util.Map;
 
-import static org.uppal.inputCommand.PaintingParams.HEIGHT;
-import static org.uppal.inputCommand.PaintingParams.WIDTH;
+import static org.uppal.inputcommand.PaintingParams.HEIGHT;
+import static org.uppal.inputcommand.PaintingParams.WIDTH;
 
 public class CanvasBuilder {
     private static final char CHARACTER = 'x';

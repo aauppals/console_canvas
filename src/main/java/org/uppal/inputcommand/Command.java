@@ -1,7 +1,5 @@
 
-package org.uppal.inputCommand;
-
-import org.jetbrains.annotations.Nullable;
+package org.uppal.inputcommand;
 
 public enum Command {
     CANVAS("C"),

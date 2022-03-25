@@ -1,14 +1,14 @@
 package org.uppal.painting;
 
-import org.uppal.inputCommand.Command;
-import org.uppal.inputCommand.PaintingParams;
+import org.uppal.inputcommand.Command;
+import org.uppal.inputcommand.PaintingParams;
 
 import java.util.Map;
 
-import static org.uppal.inputCommand.PaintingParams.*;
+import static org.uppal.inputcommand.PaintingParams.*;
 
 public class LineAndRectangleBuilder {
-    public Drawable build(Map<PaintingParams, Object> parsedCommand) {
+    public Paintable build(Map<PaintingParams, Object> parsedCommand) {
         Command command = (Command) parsedCommand.get(PaintingParams.PAINT_COMMAND);
 
         switch (command) {

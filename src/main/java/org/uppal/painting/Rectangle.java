@@ -9,8 +9,8 @@ import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
 
-class Rectangle implements Drawable {
-    private final Set<Drawable> lines;
+class Rectangle implements Paintable {
+    private final Set<Paintable> lines;
 
     Rectangle(Coordinate topLeft, Coordinate bottomRight) {
         String msgForNullCoordinate = " coordinate cannot be null";
@@ -29,14 +29,16 @@ class Rectangle implements Drawable {
     }
 
     @Override
-    public Set<Coordinate> draw() {
+    public Set<Coordinate> paint() {
         Set<Coordinate> resultSet = new HashSet<>();
-        lines.forEach(line -> resultSet.addAll(line.draw()));
+        for (Paintable line : lines) {
+            resultSet.addAll(line.paint());
+        }
         return ImmutableSet.copyOf(resultSet);
     }
 
-    private Set<Drawable> toLines(Coordinate topLeft, Coordinate bottomRight) {
-        List<Drawable> lines = new ArrayList<>();
+    private Set<Paintable> toLines(Coordinate topLeft, Coordinate bottomRight) {
+        List<Paintable> lines = new ArrayList<>();
         lines.add(new Line(topLeft, new Coordinate(bottomRight.getX(), topLeft.getY())));
         lines.add(new Line(bottomRight, new Coordinate(topLeft.getX(), bottomRight.getY())));
         lines.add(new Line(topLeft, new Coordinate(topLeft.getX(), bottomRight.getY())));

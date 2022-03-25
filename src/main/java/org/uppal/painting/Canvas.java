@@ -35,10 +35,11 @@ public class Canvas {
                 return;
             }
         }
-        coordinates.forEach(c -> canvas[c.getX()][c.getY()] = character);
+        for (Coordinate c : coordinates) {
+            canvas[c.getX()][c.getY()] = character;
+        }
     }
 
-    //ToDO: chcek if below function calls above
     public void apply(Set<Coordinate> coordinates) {
         apply(coordinates, character);
     }

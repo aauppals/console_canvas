@@ -1,4 +1,4 @@
-package org.uppal.inputCommand;
+package org.uppal.inputcommand;
 
 public enum PaintingParams {
     PAINT_COMMAND,

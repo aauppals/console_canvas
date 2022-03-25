@@ -1,10 +1,10 @@
 package org.uppal.painting;
 
-import org.uppal.inputCommand.PaintingParams;
+import org.uppal.inputcommand.PaintingParams;
 
 import java.util.Map;
 
-import static org.uppal.inputCommand.PaintingParams.*;
+import static org.uppal.inputcommand.PaintingParams.*;
 
 public class FillBuilder {
 
