@@ -4,8 +4,8 @@ import org.uppal.inputcommand.PaintingParams;
 
 import java.util.Map;
 
-import static org.uppal.inputcommand.PaintingParams.HEIGHT;
 import static org.uppal.inputcommand.PaintingParams.WIDTH;
+import static org.uppal.inputcommand.PaintingParams.HEIGHT;
 
 public class CanvasBuilder {
     private static final char CHARACTER = 'x';

@@ -15,7 +15,7 @@ public class CanvasMain {
             try {
                 System.out.print("Please enter command: ");
                 inputCommand = inputScanner.nextLine();
-                if (inputCommand.equals("QUIT")) {
+                if (inputCommand.equals("Q")) {
                     System.exit(0);
                     inputScanner.close();
                 }

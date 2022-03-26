@@ -1,13 +1,10 @@
 package org.uppal.painting;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import org.uppal.painting.Canvas;
 
 import static java.lang.Integer.parseInt;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class CanvasTest {
 
@@ -16,7 +13,7 @@ public class CanvasTest {
 
     @ParameterizedTest
     @CsvSource({"20:4", "30:50", "100:100"})
-    void WHEN_canvas_is_created_then_canvas_with_correct_size_and_characters_returned(String inputCommand) {
+     void WHEN_canvas_is_created_then_canvas_with_correct_size_and_characters_returned(String inputCommand) {
         String[] split = inputCommand.split(":");
         int width = parseInt(split[0]);
         int height = parseInt(split[1]);

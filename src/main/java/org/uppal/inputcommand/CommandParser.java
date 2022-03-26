@@ -2,7 +2,8 @@ package org.uppal.inputcommand;
 
 import java.util.EnumMap;
 
-import static java.lang.Integer.*;
+
+import static java.lang.Integer.parseInt;
 import static org.uppal.inputcommand.Command.*;
 
 public class CommandParser {
@@ -15,17 +16,18 @@ public class CommandParser {
         String[] splitCommand = inputCommand.split(DELIMITER);
         String drawCommand = splitCommand[0];
 
-        if (drawCommand.equals("C")) {
-            return parseCanvasCommand(splitCommand);
-        } else if (drawCommand.equals("L")) {
-            return parseLineAndRectangleCommand(splitCommand, Command.LINE);
-        } else if (drawCommand.equals("R")) {
-            return parseLineAndRectangleCommand(splitCommand, Command.RECTANGLE);
-        } else if (drawCommand.equals("B")) {
-            return parseFillCommand(splitCommand);
-        } else {
-            throw new IllegalArgumentException("The input drawing command " + drawCommand + " is not supported currently."
-                    + "\n" + "Valid draw commands are: C, L, R and B");
+        switch (drawCommand) {
+            case "C":
+                return parseCanvasCommand(splitCommand);
+            case "L":
+                return parseLineAndRectangleCommand(splitCommand, Command.LINE);
+            case "R":
+                return parseLineAndRectangleCommand(splitCommand, Command.RECTANGLE);
+            case "B":
+                return parseFillCommand(splitCommand);
+            default:
+                throw new IllegalArgumentException("The input drawing command " + drawCommand + " is not supported currently."
+                        + "\n" + "Valid draw commands are: C, L, R and B");
         }
     }
 
@@ -77,7 +79,7 @@ public class CommandParser {
             throw new IllegalArgumentException("Given fill coordinates cannot be zero or negative");
 
         String colour = splitCommand[3];
-        if (colour.length() != 1 || colour == null)
+        if (colour.length() != 1)
             throw new IllegalArgumentException("Colour parameter for fill command should be 1 character ");
 
         EnumMap<PaintingParams, Object> resultMap = new EnumMap<>(PaintingParams.class);

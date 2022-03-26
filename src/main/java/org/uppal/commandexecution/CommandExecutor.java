@@ -8,7 +8,6 @@ import java.util.Map;
 public class CommandExecutor {
     private static final CommandParser commandParser = new CommandParser();
 
-    private Canvas canvas;
     private Painter painter;
 
     public String execute(String inputCommand) {
@@ -23,7 +22,7 @@ public class CommandExecutor {
             switch (command) {
                 case CANVAS:
                     object = canvasBuilder.build(parsedCommand);
-                    canvas = (Canvas) object;
+                    Canvas canvas = (Canvas) object;
                     painter = new CanvasPainter(canvas);
                     return displayString(canvas);
 
@@ -40,7 +39,7 @@ public class CommandExecutor {
                     return displayString(painter.paint((Fill) object));
 
                 default:
-                    throw new RuntimeException("Drawer is null - a canvas is to be made before painting!");
+                    throw new RuntimeException("A Canvas should be made before painting!");
             }
         } catch (Exception e) {
             throw new RuntimeException("Error occurred during parsing command " + inputCommand + "\n" + e);
