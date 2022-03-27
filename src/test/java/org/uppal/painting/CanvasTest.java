@@ -13,7 +13,7 @@ public class CanvasTest {
 
     @ParameterizedTest
     @CsvSource({"20:4", "30:50", "100:100"})
-     void WHEN_canvas_is_created_then_canvas_with_correct_size_and_characters_returned(String inputCommand) {
+    void WHEN_canvas_is_created_THEN_canvas_with_correct_size_and_characters_returned(String inputCommand) {
         String[] split = inputCommand.split(":");
         int width = parseInt(split[0]);
         int height = parseInt(split[1]);

@@ -7,7 +7,6 @@ public class Canvas {
     private final char VERTICAL_EDGE;
     private final char HORIZONTAL_EDGE;
 
-    private final char EMPTY = ' ';
     private final char character;
 
     private char[][] canvas;
@@ -81,6 +80,7 @@ public class Canvas {
                 } else if (i == width + 1 || j == height + 1) {
                     canvas[i][j] = i == (width + 1) ? VERTICAL_EDGE : HORIZONTAL_EDGE;
                 } else {
+                    char EMPTY = ' ';
                     canvas[i][j] = EMPTY;
                 }
             }

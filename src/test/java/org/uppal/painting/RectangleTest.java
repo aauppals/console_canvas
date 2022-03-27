@@ -14,8 +14,8 @@ import static org.uppal.painting.TestingUtil.parseCsvInput;
 public class RectangleTest {
 
     @ParameterizedTest
-    @CsvSource({"1-1;4-4|1-1;2-1;3-1;4-1;4-2;4-3;4-4;3-4;2-4;1-4;1-3;1-2", "1-1;2-2|1-1;1-2;2-2;2-1"})
-    void drawTest(String text) {
+    @CsvSource({"1-1;5-5|1-1;2-1;3-1;4-1;5-1;5-2;5-3;5-4;5-5;4-5;3-5;2-5;1-5;1-4;1-3;1-2", "1-1;2-2|1-1;1-2;2-2;2-1"})
+    void WHEN_rectangle_painted_THEN_rectangle_with_correct_coordinates_returned(String text) {
         String[] splitLine = text.split(DELIMITER_INPUT_OUTPUT);
         List<Coordinate> input = parseCsvInput(splitLine[0]);
         assertThat(input.size()).isEqualTo(2);

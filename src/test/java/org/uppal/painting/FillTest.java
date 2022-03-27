@@ -7,9 +7,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.isNull;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class FillTest {
     private static final char COLOR = 'o';
@@ -20,17 +17,15 @@ public class FillTest {
     public static final char CHAR = 'x';
     private static Canvas emptyCanvas;
     private static Canvas testCanvas;
-    private static Canvas fullCanvas;
 
     @BeforeAll
     public static void initializeCanvases() {
-        fullCanvas = mock(Canvas.class);
         emptyCanvas = new Canvas(WIDTH, HEIGHT, CHAR, VERTICAL_EDGE, HORIZONTAL_EDGE);
         testCanvas = new Canvas(WIDTH, HEIGHT, CHAR, VERTICAL_EDGE, HORIZONTAL_EDGE);
     }
 
     @Test
-    public void when_fill_is_done_then_canvas_with_correct_fill_returned() {
+    public void WHEN_fill_is_done_THEN_canvas_with_correct_fill_returned() {
         Fill canvasFill = new Fill(new Coordinate(1, 1), COLOR);
 
         Set<Coordinate> actualOutput = canvasFill.fill(emptyCanvas);
@@ -56,10 +51,4 @@ public class FillTest {
         return expectedOutput;
     }
 
-    @Test
-    public void fullCanvasTest() {
-        when(fullCanvas.isValidPixel(isNull())).thenReturn(false);
-        Fill bucketFill = new Fill(new Coordinate(6, 6), COLOR);
-        assertThat(bucketFill.fill(fullCanvas)).isEmpty();
-    }
 }

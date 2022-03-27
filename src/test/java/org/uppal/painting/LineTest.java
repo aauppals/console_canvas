@@ -13,8 +13,8 @@ import static org.uppal.painting.TestingUtil.*;
 public class LineTest {
 
     @ParameterizedTest
-    @CsvSource({"1-5;4-5|1-5;2-5;3-5;4-5", "1-1;5-1|1-1;2-1;3-1;4-1;5-1", "1-1;1-1|1-1"})
-    void drawTest(String text) {
+    @CsvSource({"1-5;7-5|1-5;2-5;3-5;4-5;5-5;6-5;7-5", "1-1;5-1|1-1;2-1;3-1;4-1;5-1"})
+    void WHEN_line_painted_THEN_line_with_correct_coordinates_returned(String text) {
         String[] splitLine = text.split(DELIMITER_INPUT_OUTPUT);
         List<Coordinate> input = parseCsvInput(splitLine[0]);
         assertThat(input.size()).isEqualTo(2);
