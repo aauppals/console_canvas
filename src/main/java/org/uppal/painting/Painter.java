@@ -1,7 +1,7 @@
 package org.uppal.painting;
 
-public interface Painter {
-    Canvas paint(Paintable paintable);
+import java.util.Set;
 
-    Canvas paint(Fill fill);
+public interface Painter {
+    Set<Coordinate> paint();
 }

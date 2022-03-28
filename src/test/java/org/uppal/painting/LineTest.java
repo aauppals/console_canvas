@@ -19,7 +19,7 @@ public class LineTest {
         List<Coordinate> input = parseCsvInput(splitLine[0]);
         assertThat(input.size()).isEqualTo(2);
         Set<Coordinate> expectedOutput = new HashSet<>(parseCsvInput(splitLine[1]));
-        Paintable line = new Line(input.get(0), input.get(1));
+        Painter line = new Line(input.get(0), input.get(1));
         Set<Coordinate> actualOutput = line.paint();
         assertThat(actualOutput).isEqualTo(expectedOutput);
     }

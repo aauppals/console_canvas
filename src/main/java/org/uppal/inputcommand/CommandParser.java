@@ -27,7 +27,7 @@ public class CommandParser {
                 return parseFillCommand(splitCommand);
             default:
                 throw new IllegalArgumentException("The input drawing command " + drawCommand + " is not supported currently."
-                        + "\n" + "Valid draw commands are: C, L, R and B");
+                        + "\n" + "Valid draw commands are: C, L, R and B ; Q to Quit the program");
         }
     }
 

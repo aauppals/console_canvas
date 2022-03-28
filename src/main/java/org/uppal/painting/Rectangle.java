@@ -9,40 +9,43 @@ import java.util.Set;
 
 import static java.util.Objects.requireNonNull;
 
-class Rectangle implements Paintable {
-    private final Set<Paintable> lines;
+class Rectangle implements Painter {
+    private final Set<Painter> lines;
 
-    Rectangle(Coordinate topLeft, Coordinate bottomRight) {
-        String msgForNullCoordinate = " coordinate cannot be null";
-        requireNonNull(topLeft, "Top left" + msgForNullCoordinate);
-        requireNonNull(topLeft, "bottomRight" + msgForNullCoordinate);
+    Rectangle(Coordinate bottomLeft, Coordinate topRight) {
+        String nullCoordinateMsg = " coordinate cannot be null";
+        requireNonNull(bottomLeft, "Top left" + nullCoordinateMsg);
+        requireNonNull(bottomLeft, "topRight" + nullCoordinateMsg);
 
-        if (isTopLeft(topLeft, bottomRight)) {
-            lines = toLines(topLeft, bottomRight);
+        if (validateTopRight(bottomLeft, topRight)) {
+            lines = toLines(bottomLeft, topRight);
         } else {
-            throw new IllegalArgumentException("Top left coordinate is not at the top left of bottom Right coordinate");
+            throw new IllegalArgumentException("Top right coordinate is not at the top right of bottom left coordinate");
         }
     }
 
-    public static boolean isTopLeft(Coordinate topLeft, Coordinate bottomRight) {
-        return topLeft.getX() < bottomRight.getX() && topLeft.getY() < bottomRight.getY();
+    public static boolean validateTopRight(Coordinate bottomLeft, Coordinate topRight) {
+        if (bottomLeft.getX() < topRight.getX()) {
+            if (bottomLeft.getY() < topRight.getY()) return true;
+        }
+        return false;
     }
 
     @Override
     public Set<Coordinate> paint() {
         Set<Coordinate> resultSet = new HashSet<>();
-        for (Paintable line : lines) {
+        for (Painter line : lines) {
             resultSet.addAll(line.paint());
         }
         return ImmutableSet.copyOf(resultSet);
     }
 
-    private Set<Paintable> toLines(Coordinate topLeft, Coordinate bottomRight) {
-        List<Paintable> lines = new ArrayList<>();
-        lines.add(new Line(topLeft, new Coordinate(bottomRight.getX(), topLeft.getY())));
-        lines.add(new Line(bottomRight, new Coordinate(topLeft.getX(), bottomRight.getY())));
-        lines.add(new Line(topLeft, new Coordinate(topLeft.getX(), bottomRight.getY())));
-        lines.add(new Line(bottomRight, new Coordinate(bottomRight.getX(), topLeft.getY())));
+    private Set<Painter> toLines(Coordinate bottomLeft, Coordinate topRight) {
+        List<Painter> lines = new ArrayList<>();
+        lines.add(new Line(bottomLeft, new Coordinate(topRight.getX(), bottomLeft.getY())));
+        lines.add(new Line(topRight, new Coordinate(bottomLeft.getX(), topRight.getY())));
+        lines.add(new Line(bottomLeft, new Coordinate(bottomLeft.getX(), topRight.getY())));
+        lines.add(new Line(topRight, new Coordinate(topRight.getX(), bottomLeft.getY())));
         return ImmutableSet.copyOf(lines);
     }
 }

@@ -5,6 +5,7 @@ import org.uppal.commandexecution.CommandExecutor;
 import java.util.Scanner;
 
 public class CanvasMain {
+    private static final String QUIT = "Q";
     private static final Scanner inputScanner = new Scanner(System.in);
 
     private static final CommandExecutor commandExecutor = new CommandExecutor();
@@ -15,7 +16,7 @@ public class CanvasMain {
             try {
                 System.out.print("Please enter command: ");
                 inputCommand = inputScanner.nextLine();
-                if (inputCommand.equals("Q")) {
+                if (inputCommand.equals(QUIT)) {
                     System.exit(0);
                     inputScanner.close();
                 }

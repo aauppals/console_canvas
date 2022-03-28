@@ -10,7 +10,7 @@ import static java.lang.Math.min;
 import static java.lang.StrictMath.abs;
 import static java.util.Objects.requireNonNull;
 
-public class Line implements Paintable {
+public class Line implements Painter {
     private final Coordinate coordinate1;
     private final Coordinate coordinate2;
 
@@ -44,7 +44,7 @@ public class Line implements Paintable {
 
     private void checkVerticalOrHorizontal(Coordinate coordinate1, Coordinate coordinate2) {
         if (!(coordinate1.getX() == coordinate2.getX() || coordinate1.getY() == coordinate2.getY()))
-            throw new RuntimeException("Only horizontal and vertical drawing is possible");
+            throw new RuntimeException("Only horizontal and vertical line painting is supported currently");
     }
 
     @Override

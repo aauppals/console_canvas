@@ -9,7 +9,7 @@ public class Canvas {
 
     private final char character;
 
-    private char[][] canvas;
+    private final char[][] canvas;
 
     public Canvas(int width, int height, char character, char verticalEdge, char horizontalEdge) {
         if (width < 1 || height < 1) {
